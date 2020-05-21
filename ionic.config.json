@@ -1,0 +1,7 @@
+{
+  "name": "ApiConsumer",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
