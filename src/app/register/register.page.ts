@@ -4,31 +4,34 @@ import { NavigationExtras, Router } from '@angular/router';
 import { User } from 'src/domain/models/user';
 import { HistoryRepository } from '../repositories/history.repository';
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
 })
-export class HomePage {
+export class RegisterPage {
+  
   private user= new User();
  
   constructor(private router:Router,private http: HttpClient,private repository : HistoryRepository) {}
-   public goHistory(): void{
+   
+  
+  public goHistory(): void{
     this.router.navigate(['history']);
 
    }
 
-   public goRegister(): void{
-    this.router.navigate(['register']);
-
-   }
-
- public logar(): void{
+   
+ public registrar(): void{
     const body={
-      login: this.user.email,
-      password: this.user.userPassword
-    }
+      address:this.user.address,
+      age:this.user.age,
+      email:this.user.email,
+      name:this.user.name,
+      userPassword:this.user.userPassword
 
-    this.http.post('http://example-ecommerce.herokuapp.com/user/login',body).subscribe(token=>{
+     }
+
+    this.http.post('http://example-ecommerce.herokuapp.com/user/customer/add',body).subscribe(token=>{
       this.repository.save(token);
       const option: NavigationExtras={state:token};
       this.router.navigate(['list'],option);

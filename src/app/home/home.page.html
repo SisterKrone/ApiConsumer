@@ -1,20 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+      <ion-title>
+          Login
+      </ion-title>
+      <ion-buttons slot="end">
+          <ion-button (click)="goHistory()" >
+              <ion-icon name="cloud-outline"></ion-icon>
+          </ion-button> 
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="goRegister()" >
+            Register
+        </ion-button> 
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+      <ion-card>
+          <ion-item>
+              <ion-label>Login</ion-label>
+              <ion-input placeholder="example@gmail.com"[(ngModel)]="user.email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>Senha</ion-label>
+              <ion-input secureTextEntry={true} [(ngModel)]="user.userPassword"></ion-input>
+          </ion-item>
+      </ion-card>
+      <ion-card>
+          <ion-button expand="block" (click)="logar()">Logar</ion-button>
+      </ion-card>
+
   </div>
+
 </ion-content>

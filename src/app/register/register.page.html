@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+      <ion-title>
+          Create New Account
+      </ion-title>
+      
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div id="container">
+
+      <ion-card>
+          <ion-item>
+            <ion-label>Address:</ion-label>
+            <ion-input placeholder="Ladeira da Montanha 201D"[(ngModel)]="user.address"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Age:</ion-label>
+            <ion-input type="numeric" placeholder="18+"[(ngModel)]="user.age"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label>Email:</ion-label>
+              <ion-input placeholder="example@gmail.com"[(ngModel)]="user.email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Name:</ion-label>
+            <ion-input placeholder="Manoel Vitor"[(ngModel)]="user.name"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label>Password:</ion-label>
+              <ion-input secureTextEntry={true} [(ngModel)]="user.userPassword"></ion-input>
+          </ion-item>
+      </ion-card>
+      <ion-card>
+          <ion-button expand="block" (click)="registrar()">Create</ion-button>
+      </ion-card>
+
+  </div>
+
+</ion-content>
