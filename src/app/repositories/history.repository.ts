@@ -13,7 +13,13 @@ export class HistoryRepository{
          this.storage.set(HistoryRepository.KEY,tokens);
      });
  }
+ public async delete(token:string):Promise<any[]>{
+    let tokens=await this.list()
+    tokens= tokens.filter(t=>t!==token);
+    this.storage.set(HistoryRepository.KEY,tokens);
+    return tokens;
 
+}
  
  public async list(): Promise<any[]>{
     const tokens = await this.storage.get(HistoryRepository.KEY);

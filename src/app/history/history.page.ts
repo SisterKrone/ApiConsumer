@@ -14,6 +14,9 @@ export class HistoryPage implements OnInit {
   constructor(private repository:HistoryRepository,) { 
   
   }
+  async delete (token:any){
+    this.historic=await this.repository.delete(token);
+  }
 
   ngOnInit() {
     this.repository.list().then(tokens=>{

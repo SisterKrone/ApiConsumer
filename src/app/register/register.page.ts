@@ -33,14 +33,19 @@ export class RegisterPage {
       userPassword:this.user.userPassword
 
      }
+     if(body.age<18){
+      return alert("Pessoas menores de 18 não podem se cadastrar.");
+    }
 
     this.http.post('http://example-ecommerce.herokuapp.com/user/customer/add',body, {responseType: 'text'}).subscribe(token=>{
       this.repository.save(token);
       const data:any=token;
       const option: NavigationExtras={state:data};
       
+      
       this.router.navigate(['list'],option);
-    });
+    }
+    );
    
 }
 
