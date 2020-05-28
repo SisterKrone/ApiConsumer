@@ -1,9 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>list</ion-title>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Produtos</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-label>Bem vindo!</ion-label>
+  </ion-item>
+  <ion-list>
+    <ion-item-sliding *ngFor="let response of products">
+      <ion-item>
+        <ion-label>Name: {{response.name}} </ion-label>
+        <ion-label>Price: {{response.price}}R$ </ion-label>
+      </ion-item>
+
+    </ion-item-sliding>
+  </ion-list>
 
 </ion-content>

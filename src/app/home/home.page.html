@@ -10,7 +10,7 @@
       </ion-buttons>
       <ion-buttons slot="end">
         <ion-button (click)="goRegister()" >
-            Register
+            <ion-icon name="person-add-outline"></ion-icon>
         </ion-button> 
     </ion-buttons>
   </ion-toolbar>
@@ -28,7 +28,7 @@
 
           <ion-item>
               <ion-label>Senha</ion-label>
-              <ion-input secureTextEntry={true} [(ngModel)]="user.userPassword"></ion-input>
+              <ion-input type="password" #password [(ngModel)]="user.userPassword"></ion-input>
           </ion-item>
       </ion-card>
       <ion-card>

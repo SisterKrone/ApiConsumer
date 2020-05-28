@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>history</ion-title>
+    <ion-buttons><ion-back-button></ion-back-button></ion-buttons>
+    <ion-title>Historico</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let response of historic">
+      <ion-item>
+        <ion-label>Token: {{response}} </ion-label>
+      </ion-item>
+  </ion-item-sliding>
+  </ion-list>
 
 </ion-content>

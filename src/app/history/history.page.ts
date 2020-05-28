@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HistoryRepository } from '../repositories/history.repository';
+
 
 @Component({
   selector: 'app-history',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryPage implements OnInit {
 
-  constructor() { }
+  private historic=[];
+
+  constructor(private repository:HistoryRepository,) { 
+  
+  }
 
   ngOnInit() {
+    this.repository.list().then(tokens=>{
+      this.historic=tokens;
+      })
+      
+
   }
 
 }

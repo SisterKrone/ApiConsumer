@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import{HttpClient}from'@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-list',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPage implements OnInit {
 
-  constructor() { }
+  private products=[];
+  constructor(private router:Router,private http: HttpClient) { }
 
   ngOnInit() {
-  }
-
+    this.http.get('http://example-ecommerce.herokuapp.com/product/list').subscribe((product:any)=>{
+      this.products=product;
+      
+    })
+    this.products.forEach(product => {
+      console.log(product.name)
+    })
+}
 }
